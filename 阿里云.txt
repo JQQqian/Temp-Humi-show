@@ -1,0 +1,46 @@
+{"clientId":"a1eiPYXCiPY.esp8266_dev|securemode=2,signmethod=hmacsha256,timestamp=1718950132806|",
+"username":"esp8266_dev&a1eiPYXCiPY",
+"mqttHostUrl":"a1eiPYXCiPY.iot-as-mqtt.cn-shanghai.aliyuncs.com",
+"passwd":"786e9cec48d3dff9d6470fb05132ba9106da0a53c0f4c7ea660e3fa1509ea5f6",
+"port":1883}
+
+
+/sys/a1eiPYXCiPY/${deviceName}/thing/event/property/post
+/sys/a1eiPYXCiPY/esp8266_dev/thing/event/property/post
+{"params": {"temp": 60,"humi":50},"version":"1.0.0"}
+
+
+
+
+/sys/a1eiPYXCiPY/${deviceName}/thing/service/property/set
+/sys/a1eiPYXCiPY/esp8266_dev/thing/service/property/set
+
+
+
+
+
+
+
+AT
+AT+CWMODE=3 //连接别的WIFI
+AT+CWMODE=2 //开热点
+AT+CWSAP="test","11111111",11,3
+AT+CIPMUX=1
+AT+CIPSERVER=1,8080
+
+
+1.AT+CWMODE=3
+2.AT+CIPSNTPCFG=1,8,"ntp1.aliyun.com"
+3.AT+CWJAP="WIFI","11111111" 
+AT+CWJAP="vivo X100","11111111" 
+
+4.AT+MQTTUSERCFG=0,1,"NULL","mqtt_stm32&a1tPtAVb7Ry","f1de65913b91b3be0179a621ea3accc6dd207c498c6eb9f6cbd2d5d9270605d0",0,0,""
+
+5.AT+MQTTCLIENTID=0,"a1tPtAVb7Ry.mqtt_stm32|securemode=2\,signmethod=hmacsha256\,timestamp=1718090896005|"
+
+ 
+6.AT+MQTTCONN=0,"a1tPtAVb7Ry.iot-as-mqtt.cn-shanghai.aliyuncs.com",1883,1
+
+AT+MQTTPUB=0,"/sys/a1w8QV3LtEr/cKcFJsoiSTJ8PhMejDHz/thing/event/property/post""{params:{\"temperature\":59}}",0,0
+
+AT+MQTTPUB=0,"/sys/a1tPtAVb7Ry/mqtt_stm32/thing/event/property/post","{params:{\"temperature\":56}}",0,0
