@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.m": "matlab",
+        "stm32f10x.h": "c",
+        "limits": "c",
+        "memory": "c",
+        "delay.h": "c",
+        "hc-sr04.h": "c"
+    }
+}
